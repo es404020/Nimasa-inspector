@@ -11,3 +11,34 @@ button.btn.btn-primary{
   background-color: #fcce2f !important;
   color: #1a1a1a !important;
 }
+.header-3{
+  background-color: #fcce2f !important;
+  color: #1a1a1a !important;
+}
+.header-4{
+  background-color: #ffff !important;
+  color: #1a1a1a !important;
+}
+.nav-content,.nav-trigger{
+  background-color: #fcce2f !important;
+  color: #1a1a1a !important;
+}
+.title{
+  color: #1a1a1a!important;
+}
+
+
+.header .header-actions>.dropdown .dropdown-toggle.nav-icon clr-icon:not([shape^=caret]), .header .settings>.dropdown .dropdown-toggle.nav-icon clr-icon:not([shape^=caret]), header .header-actions>.dropdown .dropdown-toggle.nav-icon clr-icon:not([shape^=caret]), header .settings>.dropdown .dropdown-toggle.nav-icon clr-icon:not([shape^=caret]){
+  color: #1a1a1a!important;
+}
+.center{
+  margin: 0 auto !important;
+  width: 95% !important;
+}
+.header .header-actions>.dropdown .dropdown-toggle.nav-text, .header .settings>.dropdown .dropdown-toggle.nav-text, header .header-actions>.dropdown .dropdown-toggle.nav-text, header .settings>.dropdown .dropdown-toggle.nav-text {
+  padding: 0 1.5rem 0 1rem;
+  color: #1a1a1a !important;
+}
+.nav-text{
+  color: #1a1a1a;
+}
