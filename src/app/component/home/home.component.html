@@ -1,0 +1,89 @@
+<clr-main-container>
+
+    
+    <clr-header class="header header-4">
+        <div class="branding">
+            <a routerLink="/" class="nav-link">
+
+
+                <span class="title pl-1">NIMASA-I</span>
+            </a>
+        </div>
+
+
+        <div class="header-actions">
+
+
+            <clr-dropdown>
+                <button class="nav-icon" clrDropdownTrigger>
+                    
+            <clr-icon shape="user"></clr-icon>
+            <clr-icon shape="caret down"></clr-icon>
+        </button>
+                <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+
+
+                    <a clrDropdownItem routerLink="login">Logout</a>
+                </clr-dropdown-menu>
+            </clr-dropdown>
+        </div>
+    </clr-header>
+    <div class="content-container">
+        <div class="content-area">
+            <router-outlet></router-outlet>
+        </div>
+        <clr-vertical-nav [clrVerticalNavCollapsible]="true" [clr-nav-level]="1" [(clrVerticalNavCollapsed)]="collapsed">
+            <a clrVerticalNavLink routerLink='../dash' routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="envelope"></clr-icon>
+              DashBoard
+            </a>
+            <a clrVerticalNavLink routerLink='history' routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="line-chart" class="has-alert"></clr-icon>
+                Chart
+            </a>
+            <a clrVerticalNavLink routerLink='setting' routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="book"></clr-icon>
+                Documentation
+            </a>
+            <a clrVerticalNavLink routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="bell"></clr-icon>
+                Notification
+            </a>
+
+
+        </clr-vertical-nav>
+
+
+        <!-- <nav class="sidenav" [clr-nav-level]="1">
+            <section class="sidenav-content">
+                <section class="nav-group">
+                    <clr-tree-node class="pb-1">
+                        <button class="clr-treenode-link" routerLink='../dash'>
+                        <clr-icon shape="home"></clr-icon>
+                        Primary </button>
+                    </clr-tree-node>
+                    <clr-tree-node class="pb-1">
+                        <button class="clr-treenode-link" routerLink='history'>
+                                           <clr-icon shape="e-check"></clr-icon>
+                                    Chart
+                                    </button>
+                    </clr-tree-node>
+                    <clr-tree-node class="pb-1">
+                        <button class="clr-treenode-link" routerLink='setting'>
+                                     
+                                        <clr-icon shape="trash"></clr-icon>
+                                       Documentation
+                                            </button>
+                    </clr-tree-node>
+                    <clr-tree-node class="pb-1">
+                        <button class="clr-treenode-link">
+                                         
+                                            <clr-icon shape="bell"></clr-icon>
+                                         Subscribition 
+                                                </button>
+                    </clr-tree-node>
+                </section>
+            </section>
+        </nav>-->
+    </div>
+</clr-main-container>

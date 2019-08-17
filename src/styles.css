@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+.login-wrapper {
+    background: url("assets/login.png");
+    background-size: 60%;
+    background-position: 21rem 0;
+    background-repeat: no-repeat;
+    height: 80% !important;
+}
+button.btn.btn-primary{
+  background-color: #fcce2f !important;
+  color: #1a1a1a !important;
+}
