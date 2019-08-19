@@ -1,0 +1,61 @@
+
+<div class="center">
+        <div class="alert alert-danger" role="alert">
+                <div class="alert-items">
+                    <div class="alert-item static">
+                        <div class="alert-icon-wrapper">
+                            <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+                        </div>
+                        <span class="alert-text">Rgistration Expired</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clr-row clr-justify-content-between">
+                    <div class="clr-col-4">
+                            <span>Vessel-Name:<span style="font-weight: bolder">234567489</span></span>
+                    </div>
+                    <div class="clr-col-4">
+                            <span>Due date:<span style="color:red"> 12/78/09</span></span>
+                    </div>
+                </div>
+                <div class="clr-row clr-justify-content-between mt-2">
+                        <div class="clr-col-4">
+                            <span>
+                               Owner:<span>Ajaxmm</span>
+                            </span>
+                        </div>
+                        <div class="clr-col-4">
+                            <span>
+                                    <button class="btn btn-primary btn-block">Start Inspection</button>
+                            </span>
+                        </div>
+                    </div>
+
+<h4>Inspection History</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Inspection Date</th>
+            <th>Inspected By</th>
+            <th>Inspection ID</th>
+            <th>Compliance level</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr [routerLink]="['../../history', 12]">
+            <td>12/7/2019</td>
+            <td>AjaniEniola</td>
+            <td>23456804</td>
+            <td style="color: green">Compliance</td>
+        </tr>
+       
+        <tr [routerLink]="['../../history', 12]">
+            <td>12/5/2019</td>
+            <td>Solomon</td>
+            <td>23456804</td>
+            <td style="color: red">Non Compliance</td>
+        </tr>
+    </tbody>
+</table>
+</div>

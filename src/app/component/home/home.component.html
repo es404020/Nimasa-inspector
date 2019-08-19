@@ -88,10 +88,16 @@
                                         <input clrInput class="long" type="text"  name="firstName" required />
                                         <clr-control-error>We need your first name for legal compliance</clr-control-error>
                                     </clr-input-container>
-                                    <clr-input-container>
-                                        <label>Vessel Type</label>
-                                        <input clrInput type="text" name="midleName" />
-                                    </clr-input-container>
+                                    <clr-select-container>
+                                            <label class="clr-sr-only">User Role</label>
+                                            <select  name="type"  style="max-width:90%;">
+                                                <option value="local">Local Users</option>
+                                                <option value="admin">Administrator</option>
+                                            </select>
+                                        </clr-select-container>
+                                  
+                                        
+                                 
                                     <clr-input-container>
                                             <label>Offical No</label>
                                             <input clrInput type="text"  name="lastName" required />
@@ -125,11 +131,11 @@
         </form>
         </div>
         <clr-vertical-nav [clrVerticalNavCollapsible]="true" [clr-nav-level]="1" [(clrVerticalNavCollapsed)]="collapsed">
-            <a clrVerticalNavLink routerLink='/dashboard' routerLinkActive="active">
+            <a clrVerticalNavLink routerLink='dashboard' routerLinkActive="active">
                 <clr-icon clrVerticalNavIcon shape="envelope"></clr-icon>
               DashBoard
             </a>
-            <a clrVerticalNavLink routerLink='/vessels' routerLinkActive="active">
+            <a clrVerticalNavLink routerLink='vessels' routerLinkActive="active">
                 <clr-icon clrVerticalNavIcon shape="line-chart" class="has-alert"></clr-icon>
                 Vessels
             </a>
