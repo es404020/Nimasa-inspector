@@ -3,11 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './component/login/login.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
+  { path: 'home', redirectTo: 'home/dashboard', pathMatch: 'full' },
   {
-    path: '', 
+    path: 'home', 
     loadChildren: () => import('./main/main.module').then(m => m.MainModule)
   },
+
 ];
 
 @NgModule({

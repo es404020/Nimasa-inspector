@@ -6,4 +6,35 @@
          <clr-icon shape="search" size="16"></clr-icon>
        </button>
      </div>
+
+     <div class="item">
+             <!-- <ngx-skeleton-loader count="5" appearance="line"> </ngx-skeleton-loader> -->
+        
+
+             <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Vessel Name</th>
+                                <th>IMO Number</th>
+                                <th>Flag</th>
+                                <th>Vessel Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr [routerLink]="['../info', 12]">
+                                <td>KMPMG LOLA</td>
+                                <td>34578950</td>
+                                <td>NIG</td>
+                                <td>Cargo</td>
+                            </tr>
+                           
+                            <tr>
+                                        <td>AATIP</td>
+                                        <td>34578950</td>
+                                        <td>FRA</td>
+                                        <td>Liquid</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
 </div>
