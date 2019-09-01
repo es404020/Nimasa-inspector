@@ -42,3 +42,16 @@ button.btn.btn-primary{
 .nav-text{
   color: #1a1a1a;
 }
+
+
+.header-hamburger-trigger>span, .header-hamburger-trigger>span::after, .header-hamburger-trigger>span::before{
+  background-color: #fcce2f !important;
+}
+
+.header-hamburger-trigger>span, .header-hamburger-trigger>span::after, .header-hamburger-trigger>span::before {
+  display: inline-block;
+  height: .0833333rem;
+  width: 1rem;
+  background:  #fcce2f !important;
+  border-radius: .125rem;
+}

@@ -9,11 +9,13 @@ import { SharedModule } from './core/shared/shared.module';
 import { LoginComponent } from './component/login/login.component';
 
 
+
 LoginComponent
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+
     
     
   ],
