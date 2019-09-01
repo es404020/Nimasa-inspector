@@ -60,11 +60,14 @@
                                             <input clrInput type="text"  name="lastName" required />
                                             <clr-control-error>We need your last name for legal compliance</clr-control-error>        
                                     </clr-input-container>
-                                    <clr-input-container>
+                                  
                                             <label>Flag</label>
-                                            <input clrInput type="text"  name="lastName" required />
-                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
-                                    </clr-input-container>
+                                            <select  
+                                            >
+                                                      <option  [value]="[item.name,item.flag]"  *ngFor="let item of _country | async" >{{item?.name}}</option>
+                                                  
+                                                    </select>
+                                 
                                     <clr-input-container>
                                             <label>Offical No</label>
                                             <input clrInput type="text"  name="lastName" required />

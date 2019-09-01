@@ -6,3 +6,11 @@
   }
   
   
+  select {
+    width: 60%;
+    padding: 12px 20px;
+    margin-top: 28px;
+    margin-left: 70px;
+    box-sizing: border-box;
+    display: inline;
+  }
