@@ -1,12 +1,125 @@
 
+
 <div class="center">
+
+        <form clrForm>
+                <clr-wizard wizardmd [(clrWizardOpen)]="_open" >
+                        <clr-wizard-title>Vessel Inspection</clr-wizard-title>
+                    
+                        <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
+                        <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
+                        <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+                        <clr-wizard-button  [type]="'finish'">Finish</clr-wizard-button>
+                    
+                        <clr-wizard-page>
+                            <ng-template clrPageTitle>General Information</ng-template>
+                            <ng-template clrPageNavTitle>Step 1</ng-template>
+                          
+                                    <clr-input-container>
+                                        <label>Shipping Agent</label>
+                                        <input clrInput type="text"  name="firstName" required />
+                                        <clr-control-error>We need your first name for legal compliance</clr-control-error>
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                        <label>Shipping Agent address</label>
+                                        <input clrInput type="text" name="midleName" />
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                        <label>Shipping Agent No</label>
+                                        <input clrInput type="text"  name="lastName" required />
+                                        <clr-control-error>We need your last name for legal compliance</clr-control-error>
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                            <label>GT</label>
+                                            <input clrInput type="text"  name="lastName" required />
+                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                            <label>Cargo Type</label>
+                                            <input clrInput type="text"  name="lastName" required />
+                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                            <label>Cargo Measurement</label>
+                                            <input clrInput type="text"  name="lastName" required />
+                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                            <label>Registration Date</label>
+                                            <input clrInput type="text"  name="lastName" required />
+                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
+                                    </clr-input-container>
+                        </clr-wizard-page>
+                    
+                       
+                    
+                        <clr-wizard-page>
+                            <ng-template clrPageTitle>IMO Test</ng-template>
+                            <ng-template clrPageNavTitle>Step 2</ng-template>
+                            <div *ngIf="true">
+                                    <clr-input-container>
+                                        <label>No Nigerians</label>
+                                        <input clrInput class="long" type="text"  name="firstName" required />
+                                        <clr-control-error>We need your first name for legal compliance</clr-control-error>
+                                    </clr-input-container>
+                                  
+            
+                                    <div class="clr-form-control">
+                                            <label for="select-full" class="clr-control-label">Compliant level</label>
+                                            <div class="clr-control-container">
+                                              <div class="clr-select-wrapper">
+                                                <select id="select-full" class="clr-select">
+                                                  <option value="1">Compliance</option>
+                                                  <option value="2">Non Compliance</option>
+                                                
+                                                </select>
+                                                <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                                              </div>
+                                             
+                                          </div>
+                                    </div>
+                                  
+                                        
+                                 
+                                    <clr-input-container>
+                                            <label>No of Foreign </label>
+                                            <input clrInput type="text"  name="lastName" required />
+                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                        <label>Cargo Measurement</label>
+                                        <input clrInput type="text"  name="lastName" required />
+                                        <clr-control-error>We need your last name for legal compliance</clr-control-error>
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                            <label>Cargo Type</label>
+                                            <input clrInput type="text"  name="lastName" required />
+                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                            <label>Flag</label>
+                                            <input clrInput type="text"  name="lastName" required />
+                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
+                                    </clr-input-container>
+                                    <clr-input-container>
+                                            <label>Offical No</label>
+                                            <input clrInput type="text"  name="lastName" required />
+                                            <clr-control-error>We need your last name for legal compliance</clr-control-error>        
+                                    </clr-input-container>
+                            </div>
+                           
+                        </clr-wizard-page>
+                    </clr-wizard>
+            <router-outlet></router-outlet>
+            </form>
+        
         <div class="alert alert-danger" role="alert">
                 <div class="alert-items">
                     <div class="alert-item static">
                         <div class="alert-icon-wrapper">
                             <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
                         </div>
-                        <span class="alert-text">Rgistration Expired</span>
+                        <span class="alert-text">Registration Expired</span>
                     </div>
                 </div>
             </div>
@@ -27,8 +140,10 @@
                         </div>
                         <div class="clr-col-4">
                             <span>
-                                    <button class="btn btn-primary btn-block">Start Inspection</button>
+                                    <!-- routerLink="../../inspect" -->
+                                    <a (click)='openInspect()' class="btn btn-primary btn-block">Start Inspection</a>
                             </span>
+                            
                         </div>
                     </div>
 
@@ -58,4 +173,5 @@
         </tr>
     </tbody>
 </table>
+
 </div>

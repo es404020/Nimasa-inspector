@@ -5,6 +5,7 @@ import { DashboardComponent } from 'src/app/component/dashboard/dashboard.compon
 import { VesselComponent } from 'src/app/component/vessel/vessel.component';
 import { InfoComponent } from '../component/info/info.component';
 import { HistoryComponent } from '../component/history/history.component';
+import { InspectComponent } from '../component/inspect/inspect.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       { path: 'vessels', component:VesselComponent},
 
       {path:'info/:id',component:InfoComponent},
-      {path:'history/:id',component:HistoryComponent}
+      {path:'history/:id',component:HistoryComponent},
+      { path: 'inspect', component: InspectComponent },
       
     ]
   }

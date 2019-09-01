@@ -8,9 +8,10 @@ import { SharedModule } from 'src/app/core/shared/shared.module';
 import { VesselComponent } from 'src/app/component/vessel/vessel.component';
 import { InfoComponent } from '../component/info/info.component';
 import { HistoryComponent } from '../component/history/history.component';
+import { InspectComponent } from '../component/inspect/inspect.component';
 
 @NgModule({
-  declarations: [DashboardComponent,HomeComponent,VesselComponent,InfoComponent,HistoryComponent ],
+  declarations: [DashboardComponent,HomeComponent,VesselComponent,InfoComponent,HistoryComponent,InspectComponent ],
   imports: [
     CommonModule,
     MainRoutingModule,
