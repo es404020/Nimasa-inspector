@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewChild} from "@angular/core";
-import {ClrWizard} from "@clr/angular";
+import {  ServiceService} from '../../core/service/service.service'
 
 @Component({
   selector: 'app-home',
@@ -8,9 +7,10 @@ import {ClrWizard} from "@clr/angular";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  //@ViewChild("wizard") wizard: ClrWizard;
+
   skipStepTwo: boolean = true;
   _open: boolean = false;
+  _country;
 
   toggleStepTwo() {
       this.skipStepTwo = !this.skipStepTwo;
@@ -20,9 +20,10 @@ export class HomeComponent implements OnInit {
       this._open = true;
      console.log(this._open);
   }
-  constructor() { }
+  constructor(private _service:ServiceService) { }
 
   ngOnInit() {
+    this._country=this._service.getAllFlag();
   }
 
 }

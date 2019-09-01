@@ -9,6 +9,7 @@ import { VesselComponent } from 'src/app/component/vessel/vessel.component';
 import { InfoComponent } from '../component/info/info.component';
 import { HistoryComponent } from '../component/history/history.component';
 import { InspectComponent } from '../component/inspect/inspect.component';
+import { ServiceService} from '../core/service/service.service';
 
 @NgModule({
   declarations: [DashboardComponent,HomeComponent,VesselComponent,InfoComponent,HistoryComponent,InspectComponent ],
@@ -16,6 +17,7 @@ import { InspectComponent } from '../component/inspect/inspect.component';
     CommonModule,
     MainRoutingModule,
     SharedModule,
-  ]
+  ],
+  providers:[ ServiceService]
 })
 export class MainModule { }
