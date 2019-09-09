@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {  ServiceService} from '../../core/service/service.service'
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { VesselsService } from 'src/app/core/service/vessels.service';
+import swal from 'sweetalert2';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,7 +25,7 @@ export class HomeComponent implements OnInit {
       this._open = true;
      console.log(this._open);
   }
-  constructor(private _service:ServiceService,private _fb: FormBuilder) { }
+  constructor(private _service:ServiceService,private _fb: FormBuilder,private _vesselServeice:VesselsService) { }
 
   ngOnInit() {
     this._isLoading = false;
@@ -67,9 +70,48 @@ export class HomeComponent implements OnInit {
   }
 
   AddVessel(){
-    console.log(this._vessels.value);
+this._isLoading= true;
+this._vesselServeice.addVessels(this._vessels.value).then((res)=>{
+this._isLoading= false;
+console.log(res);
+swal.fire({
+    position: 'center',
+    type: 'success',
+    title: 'Vessels Successfully added',
+    showConfirmButton: false,
+    timer: 9500
+   })
+   this._vessels.reset();
 
-    this._vessels.reset();
+}
+).catch((err:HttpErrorResponse)=>{
+  this._isLoading= false;
+   if (err.error instanceof Error) {
+ console.log(err);
+     swal.fire({
+       position: 'center',
+       type: 'error',
+       title: err.error.message,
+       showConfirmButton: false,
+       timer: 9500
+      })
+  
+ 
+   } else {
+     swal.fire({
+       position: 'center',
+       type: 'error',
+       title:  err.error.message?err.error.message:'Network Error',
+       showConfirmButton: false,
+       timer: 3500
+      })
+  
+ 
+   }
+   
+  });
+
+   
   }
 
 }
