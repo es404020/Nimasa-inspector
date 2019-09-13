@@ -124,18 +124,19 @@
                 </div>
             </div>
 
-            <div class="clr-row clr-justify-content-between">
+            <div class="clr-row clr-justify-content-between" *ngIf="_vessels">
                     <div class="clr-col-4">
-                            <span>Vessel-Name:<span style="font-weight: bolder">234567489</span></span>
+                            <span>Vessel-Name:<span style="font-weight: bolder">{{_vessel?.NigeriaOperator}}</span></span>
                     </div>
                     <div class="clr-col-4">
-                            <span>Due date:<span style="color:red"> 12/78/09</span></span>
+                            <span>Cargo Type:<span style="color:red">{{_vessel?.CargoType}}</span></span>
                     </div>
+                    
                 </div>
                 <div class="clr-row clr-justify-content-between mt-2">
                         <div class="clr-col-4">
                             <span>
-                               Owner:<span>Ajaxmm</span>
+                               Owner:<span>{{_vessel?.NameOfVessel}}</span>
                             </span>
                         </div>
                         <div class="clr-col-4">
@@ -145,6 +146,15 @@
                             </span>
                             
                         </div>
+                    </div>
+
+                    <div class="clr-row clr-justify-content-between mt-2" >
+                            <div class="clr-col-4">
+                                    <span>Flag:<span style="color:red">{{_flagName}}</span></span>
+                            </div>
+                            <div class="clr-col-4">
+                                    <img  [src]=_flagImage>
+                            </div>
                     </div>
 
 <h4>Inspection History</h4>

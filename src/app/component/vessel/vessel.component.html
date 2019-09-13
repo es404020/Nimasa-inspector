@@ -22,7 +22,7 @@
                         </thead>
                         <tbody  *ngIf="vesselArray">
                                 <!-- [routerLink]="['../info', 12]" -->
-                            <tr  *ngFor="let vessel of vesselArray">
+                            <tr   (click)="detailsPage(vessel)"  *ngFor="let vessel of vesselArray">
                                 <td>{{vessel.NameOfVessel}}</td>
                                 <td>{{vessel.IMO}}</td>
                                 <td>{{flag}}</td>
