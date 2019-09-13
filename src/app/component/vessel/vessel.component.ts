@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { VesselsService } from 'src/app/core/service/vessels.service';
 import swal from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SharedService } from 'src/app/core/shared/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vessel',
@@ -15,7 +17,7 @@ export class VesselComponent implements OnInit {
   VesselForm: FormGroup;
   isLoading:boolean;
   vesselArray=[];
-  constructor(private _fb:FormBuilder,private _vsevice:VesselsService,private sanitizer: DomSanitizer) { }
+  constructor(private router:Router,private _fb:FormBuilder,private _vsevice:VesselsService,private sanitizer: DomSanitizer,private _shared:SharedService) { }
 
   ngOnInit() {
 
@@ -55,6 +57,13 @@ export class VesselComponent implements OnInit {
         timer: 9500
        })
     })
+
+  }
+
+  detailsPage(info){
+
+    this._shared.AddVesselInfo(info);
+    this.router.navigate(['home/info'])
 
   }
 

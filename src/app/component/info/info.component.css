@@ -5,3 +5,9 @@
 .btn-primary{
     background-color: #fcce2f!important;
 }
+
+img {
+    border-style: none;
+    vertical-align: middle;
+    height: 70px;
+  }
