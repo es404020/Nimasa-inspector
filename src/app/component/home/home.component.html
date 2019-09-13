@@ -28,7 +28,7 @@
     </clr-header>
     <div class="content-container">
         <div class="content-area">
-                <form clrForm [formGroup]="_vessels"  (ngSubmit)="AddVessel()" >
+                <form clrForm [formGroup]="_vessels"  >
                 <clr-wizard #wizard [(clrWizardOpen)]="_open">
                         <clr-wizard-title>Vessel Registration</clr-wizard-title>
                     
@@ -71,7 +71,7 @@
                                  
                                     <clr-input-container>
                                             <label>Offical No</label>
-                                            <input clrInput type="number"   formControlName= "OfficalNo"    required />
+                                            <input clrInput type="type"   formControlName= "OfficalNo"    required />
                                             <clr-control-error>We need OFFICAL No</clr-control-error>        
                                     </clr-input-container>
                                     <clr-input-container>

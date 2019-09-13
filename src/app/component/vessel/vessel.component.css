@@ -52,3 +52,12 @@ tr:hover{
  background-color: gray;
  color: #fff;
 }
+
+img {
+  border-style: none;
+  vertical-align: middle;
+  height: 40px;
+}
+td{
+  padding:25px!important;
+}

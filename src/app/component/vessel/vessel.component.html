@@ -1,8 +1,8 @@
 <div class="center">
         <h2>{{title}}</h2>
-<div class="search">
-        <input type="text" class="searchTerm" placeholder="Enter Vessel IMO Number">
-        <button type="submit" class="searchButton">
+<div class="search"  [formGroup]="VesselForm" >
+        <input formControlName="OfficalNo" type="text" class="searchTerm" placeholder="Enter Vessel Offical Number">
+        <button type="submit" [clrLoading]="isLoading"  (click)="SearchVessel()" class="searchButton">
          <clr-icon shape="search" size="16"></clr-icon>
        </button>
      </div>
@@ -16,24 +16,19 @@
                             <tr>
                                 <th>Vessel Name</th>
                                 <th>IMO Number</th>
-                                <th>Flag</th>
+                                <th>Country</th>
                                 <th>Vessel Type</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr [routerLink]="['../info', 12]">
-                                <td>KMPMG LOLA</td>
-                                <td>34578950</td>
-                                <td>NIG</td>
+                        <tbody  *ngIf="vesselArray">
+                                <!-- [routerLink]="['../info', 12]" -->
+                            <tr  *ngFor="let vessel of vesselArray">
+                                <td>{{vessel.NameOfVessel}}</td>
+                                <td>{{vessel.IMO}}</td>
+                                <td>{{flag}}</td>
                                 <td>Cargo</td>
                             </tr>
                            
-                            <tr>
-                                        <td>AATIP</td>
-                                        <td>34578950</td>
-                                        <td>FRA</td>
-                                        <td>Liquid</td>
-                            </tr>
                         </tbody>
                     </table>
         </div>
