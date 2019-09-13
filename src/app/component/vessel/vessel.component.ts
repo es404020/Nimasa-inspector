@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { VesselsService } from 'src/app/core/service/vessels.service';
+import swal from 'sweetalert2';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vessel',
@@ -7,9 +11,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VesselComponent implements OnInit {
   title:String= 'Vessels';
-  constructor() { }
+ flag:any;
+  VesselForm: FormGroup;
+  isLoading:boolean;
+  vesselArray=[];
+  constructor(private _fb:FormBuilder,private _vsevice:VesselsService,private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+
+ this.isLoading = false;
+    this.VesselForm = this._fb.group({
+      'OfficalNo': ['',[Validators.required,Validators.minLength(1)]]
+    });
+  }
+
+  SearchVessel(){
+ this.isLoading = true;
+    this._vsevice.findVessselById(this.VesselForm.value.OfficalNo).
+    subscribe((res:any)=>{
+      this.isLoading = false;
+    if(res.length==0){
+      swal.fire({
+        position: 'center',
+        type: 'success',
+        title: 'No record found....',
+        showConfirmButton: false,
+        timer: 4500
+       })
+    }
+    else{
+      this.vesselArray = res;
+      this.flag = res[0].FLAG.split(",")[0];
+
+      console.log(this.flag)
+    }
+    },(err)=>{
+      console.log(err);
+      swal.fire({
+        position: 'center',
+        type: 'error',
+        title: 'Something went wrong',
+        showConfirmButton: false,
+        timer: 9500
+       })
+    })
+
   }
 
 }
