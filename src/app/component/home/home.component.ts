@@ -71,45 +71,60 @@ export class HomeComponent implements OnInit {
 
   AddVessel(){
 this._isLoading= true;
-this._vesselServeice.addVessels(this._vessels.value).then((res)=>{
-this._isLoading= false;
-console.log(res);
-swal.fire({
+if(this._vessels.valid === false){
+
+  swal.fire({
     position: 'center',
-    type: 'success',
-    title: 'Vessels Successfully added',
+    type: 'error',
+    title: 'You need to enter a record....',
     showConfirmButton: false,
-    timer: 9500
+    timer: 3500
    })
-   this._vessels.reset();
 
 }
-).catch((err:HttpErrorResponse)=>{
-  this._isLoading= false;
-   if (err.error instanceof Error) {
- console.log(err);
-     swal.fire({
-       position: 'center',
-       type: 'error',
-       title: err.error.message,
-       showConfirmButton: false,
-       timer: 9500
-      })
-  
- 
-   } else {
-     swal.fire({
-       position: 'center',
-       type: 'error',
-       title:  err.error.message?err.error.message:'Network Error',
-       showConfirmButton: false,
-       timer: 3500
-      })
-  
- 
-   }
-   
-  });
+else{
+  this._vesselServeice.addVessels(this._vessels.value).then((res)=>{
+    this._isLoading= false;
+    console.log(res);
+    swal.fire({
+        position: 'center',
+        type: 'success',
+        title: 'Vessels Successfully added',
+        showConfirmButton: false,
+        timer: 9500
+       })
+       this._vessels.reset();
+    
+    }
+    ).catch((err:HttpErrorResponse)=>{
+      this._isLoading= false;
+       if (err.error instanceof Error) {
+     console.log(err);
+         swal.fire({
+           position: 'center',
+           type: 'error',
+           title: err.error.message,
+           showConfirmButton: false,
+           timer: 9500
+          })
+      
+     
+       } else {
+         swal.fire({
+           position: 'center',
+           type: 'error',
+           title:  err.error.message?err.error.message:'Network Error',
+           showConfirmButton: false,
+           timer: 3500
+          })
+      
+     
+       }
+       
+      });
+}
+
+
 
    
   }
