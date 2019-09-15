@@ -149,19 +149,15 @@
         </tr>
     </thead>
     <tbody *ngIf="!emptylist ;else loggedOut">
-        <tr [routerLink]="['../../history', 12]">
-            <td>12/7/2019</td>
-            <td>AjaniEniola</td>
-            <td>23456804</td>
-            <td style="color: green">Compliance</td>
+            <!-- [routerLink]="['../../history', 12]" -->
+        <tr  *ngFor="let item of  inspectionArray" >
+            <td>{{item.dates}}</td>
+            <td>{{item.GT}}</td>
+            <td>{{item.ShippingAgent}}</td>
+            <td  [style.color]="item.Compliancelevel=='Non Complainant'?'red':'green'  ">{{item.Compliance}}</td>
         </tr>
        
-        <tr [routerLink]="['../../history', 12]">
-            <td>12/5/2019</td>
-            <td>Solomon</td>
-            <td>23456804</td>
-            <td style="color: red">Non Compliance</td>
-        </tr>
+        
     </tbody>
 </table>
 

@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { firestore } from 'firebase';
 import { VesselsService } from 'src/app/core/service/vessels.service';
 import {map, switchMap,tap} from 'rxjs/operators';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
@@ -82,6 +82,7 @@ if(ress.length==0){
 }
 else{
   this.inspectionArray = ress;
+  console.log(ress);
 }
 
 
@@ -125,6 +126,16 @@ else{
     this._open = !this._open;
     console.log('hello');
     console.log(this.vesselInsepction.value);
+
+    this._service.inspectVeseel(this.vesselInsepction.value).then((res)=>{
+      swal.fire({
+        position: 'center',
+        type: 'success',
+        title: 'New vessels added',
+        showConfirmButton: false,
+        timer: 4500
+       })
+    });
   }
 
 }
