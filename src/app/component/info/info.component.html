@@ -9,7 +9,7 @@
                         <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
                         <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
                         <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
-                        <clr-wizard-button  [type]="'finish'">Finish</clr-wizard-button>
+                        <clr-wizard-button (click)="inspectVessel()" *ngIf="!vesselInsepction.invalid" >Finish</clr-wizard-button>
                     
                         <clr-wizard-page>
                             <ng-template clrPageTitle>General Information</ng-template>
@@ -17,36 +17,36 @@
                           
                                     <clr-input-container>
                                         <label>Shipping Agent</label>
-                                        <input clrInput type="text"     formControlName= "ShippingAgent" name="firstName" required />
+                                        <input clrInput type="text"     formControlName="ShippingAgent" name="firstName" required />
                                         <clr-control-error>We need your first name for legal compliance</clr-control-error>
                                     </clr-input-container>
                                     <clr-input-container>
                                         <label>Shipping Agent address</label>
-                                        <input clrInput type="text"    formControlName= "ShippingAgentAddress" name="midleName" />
+                                        <input clrInput type="text"    formControlName="ShippingAgentAddress" name="midleName" />
                                     </clr-input-container>
                                     <clr-input-container>
                                         <label>Shipping Agent No</label>
-                                        <input clrInput type="text"    formControlName= "ShippingAgentNo"  name="lastName" required />
+                                        <input clrInput type="text"    formControlName="ShippingAgentNo"  name="lastName" required />
                                         <clr-control-error>We need your last name for legal compliance</clr-control-error>
                                     </clr-input-container>
                                     <clr-input-container>
                                             <label>GT</label>
-                                            <input clrInput type="text"    formControlName= "GT"  name="lastName" required />
+                                            <input clrInput type="text"    formControlName="GT"  name="lastName" required />
                                             <clr-control-error>We need your last name for legal compliance</clr-control-error>        
                                     </clr-input-container>
                                     <clr-input-container>
                                             <label>Cargo Type</label>
-                                            <input clrInput type="text"    formControlName= "CargoType"  name="lastName" required />
+                                            <input clrInput type="text"    formControlName="CargoType"  name="lastName" required />
                                             <clr-control-error>We need your last name for legal compliance</clr-control-error>        
                                     </clr-input-container>
                                     <clr-input-container>
                                             <label>Cargo Measurement</label>
-                                            <input clrInput type="text"    formControlName= "CargoMeasurement"  name="lastName" required />
+                                            <input clrInput type="text"    formControlName="CargoMeasurement"  name="lastName" required />
                                             <clr-control-error>We need your last name for legal compliance</clr-control-error>        
                                     </clr-input-container>
                                     <clr-input-container>
                                             <label>Registration Date</label>
-                                            <input clrInput type="text"    formControlName= "RegistrationDate"  name="lastName" required />
+                                            <input clrInput type="text"    formControlName="RegistrationDate"  name="lastName" required />
                                             <clr-control-error>We need your last name for legal compliance</clr-control-error>        
                                     </clr-input-container>
                         </clr-wizard-page>
@@ -59,13 +59,13 @@
                             <div *ngIf="true">
                                     <clr-input-container>
                                         <label>Number Nigerians</label>
-                                        <input clrInput class="long" type="number"    formControlName= "NumberNigerians"  name="firstName" required />
+                                        <input clrInput class="long" type="number"    formControlName="NumberNigerians"  name="firstName" required />
                                         <clr-control-error>We need your first name for legal compliance</clr-control-error>
                                     </clr-input-container>
 
                                     <clr-input-container>
                                         <label>Number Foreigner</label>
-                                        <input clrInput class="long" type="number"    formControlName= "NumberForeign"  name="firstName" required />
+                                        <input clrInput class="long" type="number"    formControlName="NumberForeign"  name="firstName" required />
                                         <clr-control-error>We need your first name for legal compliance</clr-control-error>
                                     </clr-input-container>
                                   
@@ -74,9 +74,8 @@
                                             <label for="select-full" class="clr-control-label">Compliant level</label>
                                             <div class="clr-control-container">
                                               <div class="clr-select-wrapper">
-                                                <select formControlName= "Compliancelevel" id="select-full" class="clr-select">
-                                                  <option value="1">Compliance</option>
-                                                  <option value="2">Non Compliance</option>
+                                                <select formControlName="Compliancelevel" id="select-full" class="clr-select">
+                                                    <option [value]="item"  *ngFor="let item of comply" >{{item}}</option>
                                                 
                                                 </select>
                                                 <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
@@ -85,13 +84,13 @@
                                           </div>
                                     </div>
 
-                                    <textarea clrTextarea formControlName= "Remark" name="description" required></textarea>
+                                    <textarea clrTextarea formControlName="Remark" name="description" required></textarea>
                                   
                             </div>
                            
                         </clr-wizard-page>
                     </clr-wizard>
-            <router-outlet></router-outlet>
+           
             </form>
         
         

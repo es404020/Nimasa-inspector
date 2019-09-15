@@ -21,6 +21,7 @@ export class InfoComponent  {
   comply:any;
   officalNo:any;
 
+
  
   constructor(private location: Location,private _router:Router,private share:SharedService,private _fb:FormBuilder) { 
     
@@ -30,7 +31,8 @@ export class InfoComponent  {
     this.comply=['Complainant','Non Complainant']
     this.share.getVesselInfo().
     subscribe((res)=>{
-      console.log(res);
+      
+
       if(res==null){
         this._vessel = null
         this._router.navigate(['home/vessels'])
@@ -38,8 +40,9 @@ export class InfoComponent  {
         this._vessel = res;
         this._flagName =res.FLAG.split(",")[0] ;
         this._flagImage=res.FLAG.split(",")[1];
-        this.officalNo = res.OfficialNo;
-        console.log(res);
+        this.officalNo =  this._vessel.OfficalNo;
+        
+       
       }
      
     })
@@ -72,6 +75,13 @@ this.vesselInsepction= this._fb.group({
 
 })
 
+  }
+
+
+  inspectVessel(){
+    this._open = !this._open;
+    console.log('hello');
+    console.log(this.vesselInsepction);
   }
 
 }
