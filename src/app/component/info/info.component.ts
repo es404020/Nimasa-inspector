@@ -31,7 +31,7 @@ export class InfoComponent  {
     this.share.getVesselInfo().
     subscribe((res)=>{
       console.log(res);
-      if(res===null){
+      if(res==null){
         this._vessel = null
         this._router.navigate(['home/vessels'])
       }else{
