@@ -71,7 +71,7 @@
                                   
             
                                     <div class="clr-form-control">
-                                            <label for="select-full" class="clr-control-label">Compliant level</label>
+                                            <label for="select-full" class="clr-control-label">Compliant</label>
                                             <div class="clr-control-container">
                                               <div class="clr-select-wrapper">
                                                 <select formControlName="Compliancelevel" id="select-full" class="clr-select">
@@ -83,9 +83,10 @@
                                              
                                           </div>
                                     </div>
-
+                                    <clr-textarea-container>
+                                    <label>Description</label>
                                     <textarea clrTextarea formControlName="Remark" name="description" required></textarea>
-                                  
+                                  </clr-textarea-container>
                             </div>
                            
                         </clr-wizard-page>
@@ -96,7 +97,7 @@
         
 
           
-           
+
 
                 <div class="clr-row" *ngIf="_vessel">
 
@@ -147,7 +148,7 @@
             <th>Compliance level</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="!emptylist ;else loggedOut">
         <tr [routerLink]="['../../history', 12]">
             <td>12/7/2019</td>
             <td>AjaniEniola</td>
@@ -164,4 +165,11 @@
     </tbody>
 </table>
 
+
+
 </div>
+
+
+<ng-template class="center" #loggedOut>
+   <p style="text-align: center"> No inspection as been done on this vessel</p>
+</ng-template>

@@ -20,4 +20,13 @@ findVessselById(id:string){
   return this.afs.collection('vessels',ref => ref.where('OfficalNo', '==', id)).valueChanges();
 }
 
+inspectVeseel(info){
+  return this.afs.collection('inspection').add(info);
+}
+
+
+getVesselById(id:string){
+  return this.afs.collection('inspection',ref=>ref.where('OfficialNo', '==', id)).valueChanges();
+}
+
 }
