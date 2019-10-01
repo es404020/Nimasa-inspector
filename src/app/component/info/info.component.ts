@@ -164,4 +164,14 @@ else{
     });
   }
 
+
+  details(item){
+    console.log(item);
+
+    sessionStorage.setItem('vessel', JSON.stringify(item));
+
+    this._router.navigate(['home/inspect'])
+
+  }
+
 }
