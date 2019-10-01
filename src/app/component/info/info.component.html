@@ -86,6 +86,8 @@
                                     <clr-textarea-container>
                                     <label>Description</label>
                                     <textarea clrTextarea formControlName="Remark" name="description" required></textarea>
+
+                                    
                                   </clr-textarea-container>
                             </div>
                            
@@ -99,43 +101,49 @@
           
 
 
-                <div class="clr-row" *ngIf="_vessel">
+                <!-- <div class="clr-row" *ngIf="_vessel">
 
                         <div class="clr-col-12 clr-col-lg-12">
-                              <h3>Vessel-Name:{{_vessel.NigeriaOperator}}</h3>
+                              <h3>Vessel-Name:<span>{{_vessel.NigeriaOperator}}</h3>
                             </div>
                         <div class="clr-col-12 clr-col-lg-12">
-                            <h5>Cargo Type:{{_vessel.CargoType}}</h5>
+                            <p>Cargo Type:<span>{{_vessel.CargoType}}</p>
                         </div>
                         
                        
                         <div class="clr-col-12 clr-col-lg-12">
-                            <h5>Owner:{{_vessel.NameOfVessel}}</h5>
+                            <p>Owner:<span>{{_vessel.NameOfVessel}}</p>
                         </div>
 
                       
                         
+                    </div> -->
+
+                    <div class="clr-row  clr-justify-content-between mt-2" >
+                        <div class="clr-col-4 ">
+                            <img  [src]=_flagImage> <span style="margin-left: 20px;color: black;font-weight: bolder">{{_flagName}}</span>
+                     </div>
+                     <div class="clr-col-4 mt-5">
+                        <a (click)='openInspect()' class="btn btn-primary mt-5">Start Inspection</a>
+                     </div>
                     </div>
 
-                    <div class="clr-row clr-justify-content-between mt-2" >
-                        <div class="clr-col-4">
-                            <h5 >Flag:  {{_flagName}}</h5>
-                     </div>
-                     <div class="clr-col-4">
-                             <img  [src]=_flagImage>
-                     </div>
-                    </div>
 
+                    <div class="clr-row mt-5  clr-justify-content-start"  style="margin-top:20px;margin-left: 15px">
+
+                            <ul class="list-unstyled">
+                                    
+                                  
+                                            <li>Vessel-Name:<span style="color: black;font-weight: bolder;margin-left: 10px;text-align: justify">{{_vessel.NigeriaOperator}}</span></li>
+                                            <li>Cargo Type:<span style="color: black;font-weight: bolder;margin-left: 10px;text-align: justify" >{{_vessel.CargoType}}</span></li>
+                                            <li>Owner:<span style="color: black;font-weight: bolder;margin-left: 10px;text-align: justify">{{_vessel.NameOfVessel}}</span></li>
+                                        
+                                </ul>
+
+                    </div>
            
 
-                    <div class="clr-row clr-justify-content-between mt-2" >
-                            
-                        <div class="clr-col-12 clr-col-lg-12">
-                            <a (click)='openInspect()' class="btn btn-primary">Start Inspection</a>
-                    </div>
-                       
-                    </div>
-
+                    
                     
 
 <h4>Inspection History</h4>
@@ -154,7 +162,7 @@
             <td>{{item.dates}}</td>
             <td>{{item.GT}}</td>
             <td>{{item.ShippingAgent}}</td>
-            <td>{{item.Compliance}}</td>
+            <td style="color: white" [ngStyle]="item.Compliancelevel==='Non Complainant'?{'background-color': 'red'} : {'background-color': 'green'}">{{item.Compliancelevel}}</td>
         </tr>
        
         

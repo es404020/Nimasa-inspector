@@ -5,6 +5,7 @@ import swal from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
 import { SharedService } from 'src/app/core/shared/shared.service';
 import { Router } from '@angular/router';
+import { shareReplay } from 'rxjs/internal/operators/shareReplay';
 
 @Component({
   selector: 'app-vessel',
@@ -30,7 +31,11 @@ export class VesselComponent implements OnInit {
   SearchVessel(){
  this.isLoading = true;
     this._vsevice.findVessselById(this.VesselForm.value.OfficalNo).
-    subscribe((res:any)=>{
+
+    pipe(
+      shareReplay(60)
+    )
+    .subscribe((res:any)=>{
       this.isLoading = false;
     if(res.length==0){
       swal.fire({
