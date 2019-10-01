@@ -118,6 +118,49 @@
               "devServerTarget": "nimasa:serve:production"
             }
           }
+        },
+        "build-electron": {
+          "builder": "@richapps/ngtron:build",
+          "options": {
+            "browserTarget": "nimasa:build",
+            "electronMain": "src/electron.ts"
+          }
+        },
+        "package-electron": {
+          "builder": "@richapps/ngtron:package",
+          "options": {
+            "browserTarget": "nimasa:build",
+            "electronMain": "src/electron.ts",
+            "electronPackage": {
+              "version": "0.0.0",
+              "name": "nimasa",
+              "main": "electron.js",
+              "dependencies": {}
+            },
+            "packagerConfig": {
+              "mac": [
+                "zip",
+                "dmg"
+              ],
+              "config": {
+                "appId": "some.id",
+                "npmRebuild": false,
+                "asar": false,
+                "directories": {
+                  "app": "dist/nimasa",
+                  "output": "dist/nimasa-electron",
+                  "buildResources": "/electronResources"
+                },
+                "electronVersion": "4.0.0"
+              }
+            }
+          }
+        },
+        "serve-electron": {
+          "builder": "@richapps/ngtron:serve",
+          "options": {
+            "browserTarget": "nimasa:build"
+          }
         }
       }
     }
