@@ -8,11 +8,12 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularEditorModule } from '@kolkov/angular-editor';
 @NgModule({
  
   imports: [
     HttpClientModule,
+    AngularEditorModule ,
     ReactiveFormsModule,FormsModule ,
     ClarityModule ,
     NgxSkeletonLoaderModule,
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports:[
     HttpClientModule,
+    AngularEditorModule ,
     ReactiveFormsModule,FormsModule ,
     ClarityModule,
     NgxSkeletonLoaderModule,

@@ -8,6 +8,7 @@ import { firestore } from 'firebase';
 import { VesselsService } from 'src/app/core/service/vessels.service';
 import {map, switchMap,tap} from 'rxjs/operators';
 import swal from 'sweetalert2';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
@@ -25,7 +26,30 @@ export class InfoComponent  {
 
   inspectionArray:any;
   emptylist:boolean;
-
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',   
+    defaultFontName: 'Arial',
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  };
 
  
   constructor(private location: Location,private _router:Router,private share:SharedService,private _fb:FormBuilder,private _service:VesselsService) { 
@@ -33,6 +57,8 @@ export class InfoComponent  {
   }
 
   ngOnInit() {
+
+    
 
     let me  = new Date().toLocaleDateString();
     this.inspectionArray=[]
