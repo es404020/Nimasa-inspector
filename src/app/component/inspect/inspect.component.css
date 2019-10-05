@@ -1,0 +1,10 @@
+th{
+    color: black;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+td{
+    color: black;
+    font-weight: 400;
+}
