@@ -27,6 +27,8 @@
     "@richapps/ngtron": "0.0.24",
     "@webcomponents/custom-elements": "^1.0.0",
     "firebase": "^6.5.0",
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3",
     "ngx-skeleton-loader": "^1.2.2",
     "pdfmake": "^0.1.60",
     "rxjs": "~6.4.0",
