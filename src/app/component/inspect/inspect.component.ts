@@ -9,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inspect.component.css']
 })
 export class InspectComponent implements OnInit {
-
+data:any;
   constructor() { }
 
   ngOnInit() {
+    this.data=  JSON.parse(sessionStorage.getItem('vessel')) ;
+  console.log(this.data);
   }
 
   // generatePdf(){
