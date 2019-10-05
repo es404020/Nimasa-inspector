@@ -1,11 +1,6 @@
 <div class="center">
         <h2>{{title}}</h2>
-<div class="search"  [formGroup]="VesselForm" >
-        <input formControlName="OfficalNo" type="text" class="searchTerm" placeholder="Enter Vessel Offical Number">
-        <button type="submit" [clrLoading]="isLoading"  (click)="SearchVessel()" class="searchButton">
-         <clr-icon shape="search" size="16"></clr-icon>
-       </button>
-     </div>
+
 
      <div class="item">
              <!-- <ngx-skeleton-loader count="5" appearance="line"> </ngx-skeleton-loader> -->
@@ -32,4 +27,22 @@
                         </tbody>
                     </table>
         </div>
+
+
+        <ag-grid-angular 
+    style="width: 100%; height: 500px;" 
+    class="ag-theme-balham"
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs"
+    [enableSorting]="true"
+                    [multiSortKey]="true"
+                    [animateRows]="true"
+                    [pagination]="true"
+                    [paginationPageSize]="7"
+                    [enableFilter]="true"
+                    [context]="context"
+                    [floatingFilter]="true"
+                    [frameworkComponents]="frameworkComponents"
+    >
+</ag-grid-angular>
 </div>

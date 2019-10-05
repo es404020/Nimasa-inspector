@@ -10,13 +10,15 @@ import { InfoComponent } from '../component/info/info.component';
 import { HistoryComponent } from '../component/history/history.component';
 import { InspectComponent } from '../component/inspect/inspect.component';
 import { ServiceService} from '../core/service/service.service';
-
+import { ButtonRendererComponent } from '../component/vessel/button-renderer.component';
+import { AgGridModule } from 'ag-grid-angular';
 @NgModule({
-  declarations: [DashboardComponent,HomeComponent,VesselComponent,InfoComponent,HistoryComponent,InspectComponent ],
+  declarations: [DashboardComponent,HomeComponent,VesselComponent,InfoComponent,HistoryComponent,InspectComponent,ButtonRendererComponent ],
   imports: [
     CommonModule,
     MainRoutingModule,
     SharedModule,
+    AgGridModule.withComponents([ButtonRendererComponent]),
   ],
   providers:[ ServiceService]
 })

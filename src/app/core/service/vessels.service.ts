@@ -11,6 +11,10 @@ export class VesselsService {
   this.vessels= this.afs.collection('vessels');
   }
 
+  getAllVesssel(){
+    return this.afs.collection('vessels').valueChanges();
+  }
+
 addVessels(values:any){
 console.log(values.OfficalNo);
  return  this.vessels.doc(values.OfficalNo.toString()).set(values);
