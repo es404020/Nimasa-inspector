@@ -56,3 +56,12 @@ button.btn.btn-primary{
   background:  #fcce2f !important;
   border-radius: .125rem;
 }
+
+.ag-header-cell-label .ag-header-cell-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color:black;
+  font-weight: bolder;
+  font-size: 16px;
+}

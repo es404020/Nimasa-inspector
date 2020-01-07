@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 //import { ICellRendererParams, IAfterGuiAttachedParams } from 'ag-grid-angular';
-
+import { SharedService } from 'src/app/core/shared/shared.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-button-renderer',
   template: `
-    <button type="btn btn-primary btn-block" (click)="onClicks($event)" style="background-color:green;color:white;border-radius:5px;margin:2px">{{label}}</button>
-    <button type="btn btn-primary btn-block" (click)="onClick($event)" style="background-color:red;color:white;border-radius:5px;margin:2px">Invoice</button>
-    
+ 
+    <button class="btn btn-success btn-block" (click)="onClicks($event)" >View More</button>
     `
 })
 
 export class ButtonRendererComponent implements ICellRendererAngularComp {
+
+    constructor(private _shared:SharedService,private router:Router){}
 
   params;
   label: string;
@@ -38,6 +40,10 @@ export class ButtonRendererComponent implements ICellRendererAngularComp {
     }
   }
   onClicks($event) {
-    console.log($event);
+      
+
+      this._shared.AddVesselInfo(this.params.data);
+      this.router.navigate(['home/info'])
+   
   }
 }
