@@ -3,8 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { VesselsService } from 'src/app/core/service/vessels.service';
 import swal from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
-import { SharedService } from 'src/app/core/shared/shared.service';
-import { Router } from '@angular/router';
+
 import { shareReplay } from 'rxjs/internal/operators/shareReplay';
 import { ButtonRendererComponent } from './button-renderer.component';
 @Component({
@@ -14,6 +13,8 @@ import { ButtonRendererComponent } from './button-renderer.component';
 })
 export class VesselComponent implements OnInit {
   title:String= 'Vessels';
+  private gridApi;
+  private gridColumnApi;
   private frameworkComponents;
  flag:any;
   VesselForm: FormGroup;
@@ -21,21 +22,26 @@ export class VesselComponent implements OnInit {
   vesselArray=[];
   columnDefs;
   rowData;
-  constructor(private router:Router,private _fb:FormBuilder,private _vsevice:VesselsService,private sanitizer: DomSanitizer,private _shared:SharedService) { }
+  private defaultColDef;
+  private colResizeDefault;
+  constructor(private _fb:FormBuilder,private _vsevice:VesselsService,private sanitizer: DomSanitizer) { }
 //NameOfVessel RegDate
   ngOnInit() {
-
+    this.defaultColDef = { resizable: true };
+    this.colResizeDefault = "shift";
     this.frameworkComponents = {
       buttonRenderer:   ButtonRendererComponent,
     }
     this.columnDefs =  [
-      {headerName: 'Vessel Name', field: 'NameOfVessel' },
+      {headerName: 'Vessel Name', field: 'NameOfVessel' ,colId: "firstCol",},
       {headerName: 'IMO', field: 'IMO' },
       
-      {headerName: 'Cargo Measurent', field: 'CargoMeasurent'},
-      {headerName: 'Regeristration Date', field: 'RegDate'},
+      {headerName: 'Cargo Measurent', field: 'CargoMeasurent',colId: "firstCol",},
+      {headerName: 'Regeristration Date', field: 'RegDate',colId: "firstCol",},
+    //  {headerName: 'GT', field: 'GT'},
       {
         headerName: 'Action',
+        colId: "firstCol",
         cellRenderer: 'buttonRenderer',
         cellRendererParams: {
           onClick: this.onBtnClick1.bind(this),
@@ -93,15 +99,18 @@ export class VesselComponent implements OnInit {
 
   }
 
-  detailsPage(info){
 
-    this._shared.AddVesselInfo(info);
-    this.router.navigate(['home/info'])
-
-  }
 
   onBtnClick1(e) {
+    
     console.log(e);
+      }
+
+      onGridReady(params) {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+    
+        params.api.sizeColumnsToFit();
       }
 
 }
